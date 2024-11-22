@@ -1,0 +1,1 @@
+numeroDeEstrelas= int(input())
