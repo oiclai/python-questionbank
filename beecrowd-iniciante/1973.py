@@ -1,24 +1,27 @@
 numeroDeEstrelas= int(input())
 carneirosRoubados = 0
 carneiros = list(map(int, input().split()))
-indicesEstrelas = [i for i in range(numeroDeEstrelas)]
-while True:
-        if carneiros[0] % 2 == 0:
-            carneirosRoubados += 1
-            break
-        else:
-            for i in range(indicesEstrelas):
-                if carneiros[i] % 2 == 0:
-                     
-                elif carneiros[i] % 2 != 0:
-
-
-
-# carneiros = map(int, input().split())
-
-
-# for i in range(1,len(carneiros)+1):
-
-
-# carneiros = dict(zip(map(int, input("Digite números separados por espaço: ").split()), map(int, input("Digite os valores para cada chave separados por espaço: ").split())))
-# print(carneiros)
+totalAntesDaLoucura = sum(carneiros)
+estrelaAtual = 0 # relação posicional
+visitados = []
+# estrelasVisitadas = 0
+while 0 <= estrelaAtual < numeroDeEstrelas:
+    # estrelasVisitadas+=1
+    if carneiros[estrelaAtual] % 2 == 0: # n - 1
+        if estrelaAtual not in visitados:
+            visitados.append(estrelaAtual)
+        carneiros[estrelaAtual]-=1
+        carneirosRoubados+=1
+        estrelaAtual-=1
+                    
+    elif carneiros[estrelaAtual] % 2 != 0: # n + 1
+        if estrelaAtual not in visitados:
+            visitados.append(estrelaAtual)
+        carneiros[estrelaAtual]+=1
+        carneirosRoubados+=1
+        estrelaAtual+=1
+        
+numeroDeEstrelasVisitadas = len(visitados)
+# print(visitados)
+print(numeroDeEstrelasVisitadas)
+print(totalAntesDaLoucura - carneirosRoubados)
