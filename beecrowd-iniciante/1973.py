@@ -1,27 +1,23 @@
 numeroDeEstrelas= int(input())
-carneirosRoubados = 0
 carneiros = list(map(int, input().split()))
-totalAntesDaLoucura = sum(carneiros)
-estrelaAtual = 0 # relação posicional
-visitados = []
-# estrelasVisitadas = 0
+visitados = [0]*numeroDeEstrelas
+numeroDeEstrelasVisitadas = 0
+carneirosQueSobraram = 0
+estrelaAtual = 0 
+
 while 0 <= estrelaAtual < numeroDeEstrelas:
-    # estrelasVisitadas+=1
-    if carneiros[estrelaAtual] % 2 == 0: # n - 1
-        if estrelaAtual not in visitados:
-            visitados.append(estrelaAtual)
-        carneiros[estrelaAtual]-=1
-        carneirosRoubados+=1
-        estrelaAtual-=1
-                    
-    elif carneiros[estrelaAtual] % 2 != 0: # n + 1
-        if estrelaAtual not in visitados:
-            visitados.append(estrelaAtual)
-        carneiros[estrelaAtual]+=1
-        carneirosRoubados+=1
-        estrelaAtual+=1
-        
-numeroDeEstrelasVisitadas = len(visitados)
-# print(visitados)
-print(numeroDeEstrelasVisitadas)
-print(totalAntesDaLoucura - carneirosRoubados)
+    if carneiros[estrelaAtual] % 2 == 1: # n + 1
+        visitados[estrelaAtual] = 1
+        carneiros[estrelaAtual] -= 1
+        estrelaAtual += 1
+    elif carneiros[estrelaAtual] % 2 == 0: # n - 1 
+        if carneiros[estrelaAtual] > 0:
+            visitados[estrelaAtual] = 1
+            carneiros[estrelaAtual] -= 1
+        estrelaAtual -= 1
+
+for i in range(numeroDeEstrelas):
+    carneirosQueSobraram += carneiros[i]
+    numeroDeEstrelasVisitadas += visitados[i]
+
+print(numeroDeEstrelasVisitadas, carneirosQueSobraram)
