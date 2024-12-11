@@ -1,20 +1,17 @@
-
-# ta erradoooooooooooooooooooooooo
 n = int(input())
 for i in range(n):
-    numeros = list(map(int, input().split()))
-    listasomas = []
-    proximo = 1
-    for x in range(n):
-        for j in range(n):
-            if proximo >= n - 1:
+    numeros = list(map(int, input().split()))  
+    listaSomas = set() 
+    somaRepetida = False
+    for x in range(5): 
+        for j in range(x + 1, 5): 
+            valor = numeros[x] + numeros[j]
+            if valor in listaSomas:
+                print('YES')
+                somaRepetida = True
                 break
-            valor = numeros[x] + numeros[proximo]
-            proximo += 1
-            listasomas.append(valor)
-    for i in listasomas:
-        if listasomas.count(i) > 1:
-            print('YES')
+            listaSomas.add(valor) 
+        if somaRepetida:
             break
-    else:
+    if not somaRepetida:
         print('NO')
