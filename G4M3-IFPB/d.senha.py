@@ -14,8 +14,9 @@ def senha_forte(senha: str)-> str:
     minusculas = 'abcdefghijklmnopqrstuvwxyz'
     numeros = '0123456789'
     especiais = '!@#$%^&*()-_=+[]{}|;:,.<>/?'
+    set_senha = set(senha)
     qtd_maiusculas = qtd_minusculas = qtd_numeros = qtd_especiais = 0
-    if len(senha) < 10:
+    if len(senha) < 10 or len(senha) != len(set_senha):
         return 'N'
     for caractere in senha:
         if caractere in maiusculas:
