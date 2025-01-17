@@ -14,7 +14,7 @@
 
 crip = input('')
 cripo = ''
-i = 0
+i = 0 # indice
 while i < len(crip):
     if crip[i] == 'P' and crip[(i+1) % len(crip)] == 'P' and crip[(i+2) % len(crip)] == 'P':
         cripo += 'P'
@@ -30,3 +30,6 @@ print(cripo)
 
 # textonovo = texto_criptografado.replace('P', '')
 # print(textonovo)
+
+
+

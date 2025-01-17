@@ -10,3 +10,12 @@ elif totalmeloes>=(e-5):
     print("POUCO PREOCUPANTE")
 elif totalmeloes<(e-5):
     print("MUITO PREOCUPANTE")
+'''
+comentario
+
+contador pode ser nesse formato
+
+contador += int(input)
+funciona colocando o meloes no total de meloes direto
+'''
+
